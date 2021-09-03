@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+    position: relative;
+}
+
+.app-root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* 
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 140px !important;
+}
+
+.app-root{
+    min-height: 100vh; 
+}
+
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+} */

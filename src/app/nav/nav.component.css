@@ -1,0 +1,36 @@
+
+.nav-color a {
+    color: rgb(255, 255, 255);
+}
+
+.nav-item {
+    margin-left: 20px;
+}
+
+.custom_hover:hover {
+    color: rgb(214, 127, 255) !important;
+    cursor: pointer;
+}
+
+.custom_hover{
+    text-decoration: none;
+    padding: 20px;
+}
+
+.col {
+    padding: 10px;
+}
+
+.is-active {
+    color: rgb(214, 127, 255) !important;
+}
+
+
+@media (max-width: 372px) {
+    .nav_itens {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
