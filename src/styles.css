@@ -11,21 +11,13 @@ body {
     height: 100%;
 }
 
-/* 
-body {
-    display: flex;
-    flex-direction: column;
-    min-width: 140px !important;
+.custom_height {
+    position: relative;
+    height: 100%;
 }
 
-.app-root{
-    min-height: 100vh; 
-}
-
-
-
-footer {
+main {
+    max-height: 100%;
     position: absolute;
-    bottom: 0;
-    width: 100%;
-} */
+    overflow-y: scroll;
+}

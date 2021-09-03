@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-videoPlayer',
+  selector: 'app-videoPlayer .custom_height',
   templateUrl: './videoPlayer.component.html',
   styleUrls: ['./videoPlayer.component.css']
 })
