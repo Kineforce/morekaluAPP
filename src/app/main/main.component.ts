@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-main .custom_height',
+  selector: 'app-main .custom_style',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
