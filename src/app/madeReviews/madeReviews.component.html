@@ -1,5 +1,48 @@
-<main class="container-fluid">
-  <div class="title">
-    <span class="text-primary h2">Esta é a página para visualizar as reviews</span>
-  </div>
+<main class="container-fluid w-100 h-100 bg-transparent">
+    <div class="container-fluid h-100 d-flex">
+        <div class="container p-5 add_review">
+            <h1>Adicionar uma review</h1>
+            <div class="mb-3">
+                <label for="movie_name" class="form-label">Nome do filme</label>
+                <input type="text" class="form-control" id="movie_name" name="movie_name" [(ngModel)]="_curr_review.movie_name" />
+            </div>        
+            <div class="mb-3">
+                <label for="movie_name" class="form-label">Review do filme</label>
+                <textarea type="text" class="form-control" id="review_text" name="review_text" [(ngModel)]="_curr_review.review_text" ></textarea>
+            </div>        
+            <div class="mb-3">
+                <label for="movie_genre" class="form-label">Gêneros do filme</label>
+                <input type="text" class="form-control" id="movie_genre" name="movie_genre" [(ngModel)]="genres" (input)="sliceGenres()" />
+            </div>
+            <div class="row">
+                <div class="mb-3" style="width:218px">
+                    <label for="release_year" class="form-label">Ano de lançamento</label>
+                    <input type="number" class="form-control" name="release_year" id="release_year" [(ngModel)]="_curr_review.movie_release_year">
+                </div>
+                <div class="mb-3" style="width:250px">
+                    <label for="movie_score" class="form-label">Nota para o filme</label>
+                    <input type="number" class="form-control" max="10" style="width:80px" name="movie_score" id="movie_score" [(ngModel)]="_curr_review.review_score" />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="generic">
+                    <button type="button" class="btn btn-primary" (click)="postNewReview()">Registrar</button>
+                </div>
+            </div>
+        </div>
+        <div class="container d-flex p-5">
+            <div class="list_reviews p-3">
+                <h1>Listagem de reviews</h1>
+                <div *ngFor="let review of reviews" class="card review_card p-3 mt-3">
+                    <span class="text-primary">{{review.id}}</span>
+                    <span class="text-primary">{{review.movie_name}}</span>
+                    <span class="text-primary" *ngFor="let genre of review.movie_genres" >{{genre}}</span>
+                    <span class="text-primary">{{review.movie_release_year}}</span>
+                    <span class="text-primary">{{review.review_text}}</span>
+                    <span class="text-primary">{{review.review_score}}</span>
+                    <span class="text-primary">{{review.review_date}}</span>
+                  </div>
+            </div>
+        </div>
+    </div>
 </main>

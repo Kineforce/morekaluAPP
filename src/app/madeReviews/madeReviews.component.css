@@ -1,0 +1,6 @@
+.list_reviews {
+    position: relative;
+    overflow-y: auto;
+    max-height: 900px;
+}
+

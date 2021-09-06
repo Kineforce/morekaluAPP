@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoPlayerComponent implements OnInit {
 
+  public movie_name = "A espera de um milagre";
+  public path_to_movie = "https://mdbootstrap.com/img/video/Sail-Away.mp4";
+  
   constructor() { }
 
   ngOnInit() {

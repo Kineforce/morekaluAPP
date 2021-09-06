@@ -10,19 +10,25 @@ import { NavComponent } from './nav/nav.component';
 import { VideoPlayerComponent } from './videoPlayer/videoPlayer.component';
 import { MadeReviewsComponent } from './madeReviews/madeReviews.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
-  declarations: [						
+  declarations: [							
     AppComponent,
-      HeaderComponent,
-      FooterComponent,
-      MainComponent,
-      NavComponent,
-      VideoPlayerComponent,
-      MadeReviewsComponent
+    HeaderComponent,
+    FooterComponent,
+    MainComponent,
+    NavComponent,
+    VideoPlayerComponent,
+    MadeReviewsComponent,
    ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
