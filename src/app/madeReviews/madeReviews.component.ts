@@ -24,10 +24,7 @@ export class MadeReviewsComponent implements OnInit {
       }
     });
 
-    this._curr_review.movie_genres = trimmed_array || [];
-
-    console.log(this._curr_review);
-    
+    this._curr_review.movie_genres = trimmed_array || [];    
   }
 
   public postNewReview(){
@@ -55,11 +52,25 @@ export class MadeReviewsComponent implements OnInit {
           }
           check = 0;
         })
+
+        this.reviews = this.reviews?.sort(this.compare);
+
       } else {
         this.reviews = undefined;
       }
     })
   }
+  
+  public compare(a: Review, b: Review) {
+    if ( ( a.id || "" ) > ( b.id || "" )  ){
+      return -1;
+    }
+    if ( ( a.id || "" ) < ( b.id || "" )  ){
+      return 1;
+    }
+    return 0;
+  }
+
   
   constructor( private dataService: DataService ) { 
     this._curr_review = new Review();

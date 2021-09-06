@@ -1,6 +1,10 @@
-.list_reviews {
-    position: relative;
-    overflow-y: auto;
-    max-height: 900px;
+.col_id {
+    max-width: max-content;
+    border-right: 1px solid rgba(100, 148, 237, 0.247);
+    border-bottom: 1px solid rgba(100, 148, 237, 0.247);
 }
 
+.col_genre {
+    max-width: max-content;
+    border-left: 1px solid rgba(100, 148, 237, 0.247);;
+}

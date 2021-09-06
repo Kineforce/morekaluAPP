@@ -30,19 +30,46 @@
                 </div>
             </div>
         </div>
-        <div class="container d-flex p-5">
-            <div class="list_reviews p-3">
+        <div class="container d-flex flex-column p-5">
+            <div class="title_div">
                 <h1>Listagem de reviews</h1>
-                <div *ngFor="let review of reviews" class="card review_card p-3 mt-3">
-                    <span class="text-primary">{{review.id}}</span>
-                    <span class="text-primary">{{review.movie_name}}</span>
-                    <span class="text-primary" *ngFor="let genre of review.movie_genres" >{{genre}}</span>
-                    <span class="text-primary">{{review.movie_release_year}}</span>
-                    <span class="text-primary">{{review.review_text}}</span>
-                    <span class="text-primary">{{review.review_score}}</span>
-                    <span class="text-primary">{{review.review_date}}</span>
+            </div>
+            <div class="list_reviews overflow-scroll position-relative p-3">
+                <div *ngFor="let review of reviews" class="card review_card mt-3 me-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col col_id">
+                                <span class="text-danger">{{review.id}}</span>
+                            </div>
+                            <div class="col col_title">
+                                <strong>Nome do filme: </strong><span>{{review.movie_name}}</span>
+                            </div>                        
+                        </div>
+                        <div class="row row_review">
+                            <span><strong>Review: </strong><span>{{review.review_text}}</span></span>
+                        </div>
+                        <div class="row">
+                            <div class="col col_genre" *ngFor="let genre of review.movie_genres" >
+                                <span>{{genre}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>Ano de lançamento: </strong><span>{{review.movie_release_year}}</span>
+                            </div>
+                            <div class="col">
+                                <strong>Nota da review: </strong><span>{{review.review_score}}</span>
+                            </div>
+                            <div class="col">
+                                <strong>Review feita no dia </strong><span>{{ review.review_date | date:'dd/MM/yyyy' }} 
+                                    às 
+                                {{ review.review_date | date:'HH:mm:ss'}}</span>
+                            </div>
+                        </div>
+                    </div>
                   </div>
             </div>
         </div>
     </div>
 </main>
+
