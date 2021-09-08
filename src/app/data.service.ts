@@ -17,5 +17,13 @@ export class DataService {
     return this.http.post<Boolean>("https://localhost:5001/api/movies/reviews", _review);
   }
 
+  public delReview(_id_review: number){
+    return this.http.delete<Boolean>("https://localhost:5001/api/movies/reviews?_id=" + _id_review);
+  }
+
+  public updateReview(_updated_review: Review){ 
+    return this.http.put<Boolean>("https://localhost:5001/api/movies/reviews", _updated_review);
+  }
+
 }
 

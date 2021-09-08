@@ -1,6 +1,6 @@
 <main class="container-fluid w-100 h-100 bg-transparent">
     <div class="container-fluid h-100 d-flex">
-        <div class="container p-5 add_review">
+        <div class="container w-50 p-5 add_review">
             <h1>Adicionar uma review</h1>
             <div class="mb-3">
                 <label for="movie_name" class="form-label">Nome do filme</label>
@@ -13,6 +13,13 @@
             <div class="mb-3">
                 <label for="movie_genre" class="form-label">Gêneros do filme</label>
                 <input type="text" class="form-control" id="movie_genre" name="movie_genre" [(ngModel)]="genres" (input)="sliceGenres()" />
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col add_col_genre" *ngFor="let genre of _curr_review.movie_genres; index as i">
+                        <span class="styled_genre">{{genre}}</span>
+                    </div>
+                </div>
             </div>
             <div class="row">
                 <div class="mb-3" style="width:218px">
@@ -36,14 +43,18 @@
             </div>
             <div class="list_reviews overflow-scroll position-relative p-3">
                 <div *ngFor="let review of reviews" class="card review_card mt-3 me-3">
-                    <div class="container">
+                    <div class="container" *ngIf="review.id != update_card.which_card">
                         <div class="row">
                             <div class="col col_id">
                                 <span class="text-danger">{{review.id}}</span>
                             </div>
-                            <div class="col col_title">
+                            <div class="col-10 col_title">
                                 <strong>Nome do filme: </strong><span>{{review.movie_name}}</span>
-                            </div>                        
+                            </div>  
+                            <div class="col col_actios only_on_hover">
+                                <i class="me-3 mt-2 fa fa-wrench text-warning btn_cursor" style="font-size: 30px;" (click)="updateMode(review, true);"></i>
+                                <i class="ms-3 mt-2 fa fa-times text-danger btn_cursor" style="font-size: 30px;" (click)="deleteReview(review.id);"></i>
+                            </div>                      
                         </div>
                         <div class="row row_review">
                             <span><strong>Review: </strong><span>{{review.review_text}}</span></span>
@@ -67,7 +78,54 @@
                             </div>
                         </div>
                     </div>
-                  </div>
+                    <div class="container" *ngIf="review.id == update_card.which_card && update_card.can_update">
+                        <div class="row">
+                            <div class="col col_id">
+                                <span class="text-danger">{{review.id}}</span>
+                            </div>
+                            <div class="col-10 col_title">  
+                                <strong>Nome do filme: </strong><input class="custom_input" [(ngModel)]="_temp_update_review.movie_name" />
+                            </div>  
+                            <div class="col col_actios only_on_hover">
+                                <i class="me-3 mt-2 fa fa-check text-success btn_cursor" style="font-size: 30px;" (click)="updateReview(review)"></i>
+                                <i class="ms-3 mt-2 fa fa-archive text-secondary btn_cursor" style="font-size: 30px;" (click)="updateMode(undefined, false)"></i>
+                            </div>                      
+                        </div>
+                        <div class="row row_review  mt-2 d-flex">
+                            <div class="col max_cont">
+                                <strong clas="max_cont">Review: </strong>
+                            </div>
+                            <div class="col w-100">
+                                <textarea class="form-control mb-2" [(ngModel)]="_temp_update_review.review_text" rows="1" cols="20"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col col_genre" *ngFor="let genre of review.movie_genres" >
+                                <span>{{genre}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <strong>Ano de lançamento: </strong><span>{{review.movie_release_year}}</span>
+                            </div>
+                            <div class="col">
+                                <div class="row mb-2 d-flex">
+                                    <div class="col max_cont" >
+                                        <strong class="max_cont" >Nota da review: </strong>
+                                    </div>
+                                    <div class="col w-100">
+                                        <input type="number" class="form-control" [(ngModel)]="_temp_update_review.review_score"> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <strong>Review feita no dia </strong><span>{{ review.review_date | date:'dd/MM/yyyy' }} 
+                                    às 
+                                {{ review.review_date | date:'HH:mm:ss'}}</span>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
             </div>
         </div>
     </div>

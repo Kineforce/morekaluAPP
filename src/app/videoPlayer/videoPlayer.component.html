@@ -1,8 +1,11 @@
 <main class="container w-100 h-100 bg-transparent">
-    <div class="row mt-5">
+    <div class="row mt-5" *ngIf="movie_name">
         <div class="lead">Estamos assistindo <span class="text-primary"><em>{{movie_name}}</em></span></div>
         <video class="video-fluid z-depth-1" loop controls>
             <source src="{{path_to_movie}}" type="video/mp4" />
         </video>
+    </div>
+    <div class="row mt-5" *ngIf="!movie_name">
+        <div class="lead">Não há nenhum filme rolando!</div>
     </div>
 </main>

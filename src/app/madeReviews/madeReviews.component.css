@@ -1,10 +1,72 @@
 .col_id {
     max-width: max-content;
-    border-right: 1px solid rgba(100, 148, 237, 0.247);
+    max-height: 30px;
+    border-right: 1px solid rgba(44, 70, 119, 0.247);
     border-bottom: 1px solid rgba(100, 148, 237, 0.247);
+}
+
+.max_cont {
+    max-width: max-content;
 }
 
 .col_genre {
     max-width: max-content;
     border-left: 1px solid rgba(100, 148, 237, 0.247);;
+}
+
+.add_col_genre {
+    margin-top: 10px;
+}
+
+.styled_genre {
+    border: 1px solid rgba(100, 148, 237, 0.247);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.styled_genre + .styled_genre {
+    margin-left: 20px;
+}
+
+.review_card:hover {   
+    background-color: rgba(245, 245, 245, 0.555);
+    box-shadow: 2px 2px 10px rgb(214, 127, 255);
+    zoom: 1.1;
+}
+
+.review_card:hover .only_on_hover {
+    display: block;
+}
+
+.btn_cursor {
+    cursor: pointer;
+}
+
+.only_on_hover {
+    display: none;
+}
+
+.custom_input {
+    margin-top: 5px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.custom_input:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
 }
