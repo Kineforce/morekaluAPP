@@ -41,6 +41,10 @@
             <div class="title_div">
                 <h1>Listagem de reviews</h1>
             </div>
+            <div class="row mt-4" *ngIf="reviews === undefined">
+                <h4>Não foram encotradas reviews cadastradas!</h4>
+                <h6>Você pode cadastrar uma nova no menu à esquerda ;)</h6>
+            </div>
             <div class="list_reviews overflow-scroll position-relative p-3">
                 <div *ngFor="let review of reviews" class="card review_card mt-3 me-3">
                     <div class="container" *ngIf="review.id != update_card.which_card">

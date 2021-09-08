@@ -39,7 +39,7 @@ export class MadeReviewsComponent implements OnInit {
   public postNewReview(){
 
     this.dataService.addReview(this._curr_review).subscribe(response=>{
-      if (response){
+      if (typeof(response) == 'number'){
         this.populateReviews();
       }
     })
@@ -100,20 +100,19 @@ export class MadeReviewsComponent implements OnInit {
   }
 
   public deleteReview(_review_id?: number){
-    if (_review_id){
-      this.dataService.delReview(_review_id).subscribe(response=>{
-        if (response){
-          let updated_reviews = new Array<Review>();
-          this.reviews?.map((curr_review)=>{
-            if (curr_review.id != _review_id){
-              updated_reviews.push(curr_review);
-            }
-          })
+    this.dataService.delReview(_review_id).subscribe(response=>{
+      if (response){
+        let updated_reviews = new Array<Review>();
+        this.reviews?.map((curr_review)=>{
+          if (curr_review.id != _review_id){
+            updated_reviews.push(curr_review);
+          }
+        })
 
-          this.reviews = updated_reviews;
-        }
-      });
-    }
+        this.reviews = updated_reviews;
+      }
+    });
+    
   }
   
   public compare(a: Review, b: Review) {
