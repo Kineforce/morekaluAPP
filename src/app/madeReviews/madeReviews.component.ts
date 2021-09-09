@@ -39,9 +39,7 @@ export class MadeReviewsComponent implements OnInit {
   public postNewReview(){
 
     this.dataService.addReview(this._curr_review).subscribe(response=>{
-      if (typeof(response) == 'number'){
-        this.populateReviews();
-      }
+      this.populateReviews();
     })
 
   }
