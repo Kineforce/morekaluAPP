@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewCount } from '../Models/ViewCount';
+import { ViewCountService } from '../Services/viewcount.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+
+  public curr_count_reviews = new ViewCount();
+
+  public getViewCount(){
+    this.requestCountView.getViewCount().subscribe(data => {
+      this.curr_count_reviews = data;
+    })
+  }
+
+  constructor( private requestCountView: ViewCountService ) {
+  }
 
   ngOnInit() {
+
+    this.getViewCount();
+
   }
 
 }

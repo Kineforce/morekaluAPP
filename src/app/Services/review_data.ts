@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Review } from './Models/Review';
+import { Review } from '../Models/Review';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DataService {
+export class ReviewDataService {
 
   constructor(private http: HttpClient) { }
   
@@ -23,6 +23,10 @@ export class DataService {
 
   public updateReview(_updated_review: Review){ 
     return this.http.put<Boolean>("https://localhost:5001/api/movies/reviews", _updated_review);
+  }
+
+  public getReviewCount(){
+    return this.http.get<number>("https://localhost:5001/api/movies/reviews/total");
   }
 
 }

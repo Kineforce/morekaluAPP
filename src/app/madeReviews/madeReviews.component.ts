@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from '../data.service';
+import { ReviewDataService } from '../Services/review_data';
 import { Review } from '../Models/Review';
 import { UpdateCard } from '../Models/UpdateCard';
 
@@ -38,14 +38,14 @@ export class MadeReviewsComponent implements OnInit {
 
   public postNewReview(){
 
-    this.dataService.addReview(this._curr_review).subscribe(response=>{
+    this.reviewDataService.addReview(this._curr_review).subscribe(response=>{
       this.populateReviews();
     })
 
   }
 
   public populateReviews(){
-    this.dataService.getReviews().subscribe(data => {
+    this.reviewDataService.getReviews().subscribe(data => {
       if (data.length > 0){
         let check = 0;
         data.map((new_review)=>{          
@@ -66,6 +66,7 @@ export class MadeReviewsComponent implements OnInit {
         this.reviews = undefined;
       }
     })
+
   }
 
   public updateMode(_review?: Review, _mode?: boolean){
@@ -83,7 +84,7 @@ export class MadeReviewsComponent implements OnInit {
     _updated_review.review_text = this._temp_update_review.review_text;
     _updated_review.review_score = this._temp_update_review.review_score;
 
-    this.dataService.updateReview(_updated_review).subscribe(response=>{
+    this.reviewDataService.updateReview(_updated_review).subscribe(response=>{
       if (response){
         this.reviews?.map((curr_review)=>{
           if (curr_review.id == _updated_review.id){
@@ -98,7 +99,7 @@ export class MadeReviewsComponent implements OnInit {
   }
 
   public deleteReview(_review_id?: number){
-    this.dataService.delReview(_review_id).subscribe(response=>{
+    this.reviewDataService.delReview(_review_id).subscribe(response=>{
       if (response){
         let updated_reviews = new Array<Review>();
         this.reviews?.map((curr_review)=>{
@@ -124,7 +125,7 @@ export class MadeReviewsComponent implements OnInit {
   }
 
   
-  constructor( private dataService: DataService ) { 
+  constructor( private reviewDataService: ReviewDataService) { 
     this._curr_review = new Review();
     this._temp_update_review = new Review();
 
