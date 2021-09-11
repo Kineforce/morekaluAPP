@@ -1,0 +1,21 @@
+<div class="row m-2 mt-5 h-100 chat_messages">  
+  <div class="container d-flex flex-column">
+    <div class="row d-flex" *ngFor="let message of arr_messages">
+      <div class="col max_cont">
+        <div class="row d-flex flex-column">
+          <span class="text-danger max_cont">{{message.sender}}</span>
+          <span class="text-primary max_cont">{{message.text_message}}</span>     
+        </div>
+      </div>
+      <div class="col ms-auto max_cont">
+        <span class="text-secondary max_cont">{{message.date_msg | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+      </div>
+    </div>
+  </div>    
+</div>
+<div class="row m-2">
+  <input [(ngModel)]="curr_message.sender" type="text" class="form-control" id="sender_msg" placeholder="Quem é você?">
+</div>
+<div class="row m-2 input_messages">
+  <input [(ngModel)]="curr_message.text_message" type="text" class="form-control" (keyup)="sendMessage($event)" placeholder="Envie sua mensagem! (Enter para enviar)">
+</div>

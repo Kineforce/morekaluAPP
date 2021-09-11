@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatComponent } from '../chat/chat.component';
 
 @Component({
   selector: 'app-videoPlayer .custom_style',

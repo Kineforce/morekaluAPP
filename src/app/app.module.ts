@@ -12,10 +12,11 @@ import { MadeReviewsComponent } from './madeReviews/madeReviews.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
-  declarations: [							
+  declarations: [								
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     NavComponent,
     VideoPlayerComponent,
     MadeReviewsComponent,
+    ChatComponent
    ],
   imports: [
     BrowserModule,

@@ -14,6 +14,10 @@ body {
     height: 100%;
 }
 
+.max_cont {
+    max-width: max-content;
+}
+
 .custom_style {
     display: flex;
     justify-content: center;

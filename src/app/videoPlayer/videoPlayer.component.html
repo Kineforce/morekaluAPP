@@ -1,11 +1,20 @@
-<main class="container w-100 h-100 bg-transparent">
-    <div class="row mt-5" *ngIf="movie_name">
-        <div class="lead">Estamos assistindo <span class="text-primary"><em>{{movie_name}}</em></span></div>
-        <video class="video-fluid z-depth-1" loop controls>
-            <source src="{{path_to_movie}}" type="video/mp4" />
-        </video>
-    </div>
-    <div class="row mt-5" *ngIf="!movie_name">
-        <div class="lead">Não há nenhum filme rolando!</div>
+<main class="container-fluid d-flex w-100 h-100 bg-transparent">
+    <div class="container-fluid h-100 d-flex">
+        <div class="container w-100 p-5">
+            <div class="row mt-5" *ngIf="movie_name">
+                <div class="lead">Estamos assistindo <span class="text-primary"><em>{{movie_name}}</em></span></div>
+            </div>
+            <div class="row mt-5" *ngIf="!movie_name">
+                <div class="lead">Não há nenhum filme rolando!</div>
+            </div> 
+            <div class="row">
+                <video style="width: calc(100% - 50px);" loop controls>
+                    <source src="{{path_to_movie}}" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+        <div class="container d-flex flex-column p-5">
+            <app-chat></app-chat>
+        </div>
     </div>
 </main>

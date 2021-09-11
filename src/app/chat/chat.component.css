@@ -1,0 +1,12 @@
+.chat_messages {
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: .25rem;
+}
+
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;   
+}
