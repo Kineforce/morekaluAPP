@@ -1,20 +1,26 @@
 <div class="row m-2 mt-5 h-100 chat_messages">  
   <div class="container d-flex flex-column">
-    <div class="row d-flex" *ngFor="let message of arr_messages">
+    <div class="row d-flex row_msg" *ngFor="let message of arr_messages">
       <div class="col max_cont">
         <div class="row d-flex flex-column">
-          <span class="text-danger max_cont">{{message.sender}}</span>
-          <span class="text-primary max_cont">{{message.text_message}}</span>     
+          <span class="max_cont" [ngStyle]="{'color': message.color}">{{message.sender}}</span>
+          <span class="max_cont" [ngStyle]="{'color': default_msg_color }" >{{message.text_message}}</span>     
         </div>
       </div>
       <div class="col ms-auto max_cont">
         <span class="text-secondary max_cont">{{message.date_msg | date:'dd/MM/yyyy HH:mm:ss'}}</span>
       </div>
+      <div class="line_row_msg"></div>
+    </div>    
     </div>
-  </div>    
 </div>
 <div class="row m-2">
-  <input [(ngModel)]="curr_message.sender" type="text" class="form-control" id="sender_msg" placeholder="Quem é você?">
+  <div class="col-md-10" style="padding: 0px !important; margin: 0px !important;">
+    <input [(ngModel)]="curr_message.sender" type="text" class="form-control" id="sender_msg" placeholder="Quem é você?">
+  </div>
+  <div class="col-md-2">
+    <input [(ngModel)]="curr_message.color" type="color" class="form-control" style="height: 100%;" />
+  </div>
 </div>
 <div class="row m-2 input_messages">
   <input [(ngModel)]="curr_message.text_message" type="text" class="form-control" (keyup)="sendMessage($event)" placeholder="Envie sua mensagem! (Enter para enviar)">

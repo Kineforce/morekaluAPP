@@ -3,10 +3,20 @@
     background-color: #fff;
     background-clip: padding-box;
     border-radius: .25rem;
+    overflow-y: auto;
 }
 
 :host {
     display: flex;
     flex-direction: column;
     height: 100%;   
+}
+
+.row_msg {
+    padding: 10px;
+}
+
+.line_row_msg {
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(56, 48, 56, 0.548);
 }
